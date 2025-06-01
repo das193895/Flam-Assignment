@@ -1,6 +1,6 @@
 # Flam-Assignment
 
-## Question - 1 (N-Queens)
+## 🔄 Question - 1 : N-Queens
 
 🧩 The Problem Statement:
 
@@ -54,6 +54,74 @@ Make sure you have Java installed.
 
 Save the code in a file named Solution.java.
 
-Compile and run using: javac Solution.java
+Compile and run using:
+ ```bash 
+ javac Solution.java 
+ ```
+
+## 🔄 Question 2: Detect Circular Dependency in Module Loader
+Problem Statement
+You are building a module loader for a large software system. Each module may depend on one or more other modules. Before loading, you must ensure that there are no circular dependencies, as they would lead to infinite loading loops.
+
+Function Signature: bool hasCircularDependency(int n, vector<vector<int>>& edges);
+
+📥 Input
+n: Number of modules, labeled from 0 to n - 1
+
+edges: List of dependency pairs where edges[i] = {a, b} means module a depends on module b
+
+📤 Output
+true if a circular dependency exists
+
+false otherwise
+
+🧠 Constraints
+1 ≤ n ≤ 10⁴
+
+0 ≤ edges.length ≤ 10⁵
+
+Dependencies form a directed graph
+
+Self-dependencies like {a, a} are valid and considered cycles
+
+The graph may have disconnected components
+
+🔁 Examples
+
+Input:
+n = 4
+edges = {{0, 1}, {1, 2}, {2, 3}}
+
+Output:
+false
+
+
+Input:
+n = 4
+edges = {{0, 1}, {1, 2}, {2, 0}}
+
+Output:
+true
+
+
+💡 Approach
+The graph is constructed using an adjacency list, reversing the dependency direction so b → a if a depends on b.
+
+A topological sort is performed using Kahn’s Algorithm, which tracks nodes with 0 in-degree.
+
+If at the end of sorting, not all nodes are processed (topoSort.size() < n), a cycle exists.
+
+Also, self-dependencies (e.g., {a, a}) are checked immediately and flagged as cycles.
+
+🧪 How to Run
+Save the Java code as Main.java
+
+Compile and run:
+
+```bash
+javac Main.java
+java Main
+```
+
 
 

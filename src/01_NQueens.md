@@ -1,6 +1,7 @@
+```java
 import java.util.*;
-public class NQueens{
-    class Solution {
+class Main {
+    public static class Solution {
         public List<List<String>> solveNQueens(int n) {
     
             Character[][] board = new Character[n][n];
@@ -20,7 +21,7 @@ public class NQueens{
             
         }
     
-        public void helper(int column , List<List<String>> answer , Character[][] board){
+        private void helper(int column , List<List<String>> answer , Character[][] board){
             if(column == board.length){
                 saveBoard(answer , board);
                 return;
@@ -35,7 +36,7 @@ public class NQueens{
             }
         }
     
-        public boolean isSafe(Character[][] board , int column , int row){
+        private boolean isSafe(Character[][] board , int column , int row){
     
             int n = board.length;
     
@@ -118,7 +119,7 @@ public class NQueens{
             return ans; 
         }
     
-        public void saveBoard(List<List<String>> answer , Character[][] board){
+        private void saveBoard(List<List<String>> answer , Character[][] board){
             List<String> str_arr = new ArrayList<>();
             for(int i = 0;i<board.length;i++){
                
@@ -132,10 +133,14 @@ public class NQueens{
             answer.add(str_arr);
         }
     }
-    public static void main(String[] args){
-
-        System.out.println("Hello world");
-
+    
+    
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+        
+        Solution solution = new Solution();
+        
+        System.out.println(solution.solveNQueens(4));
     }
-
 }
+```
